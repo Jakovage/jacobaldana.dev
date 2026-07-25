@@ -22,40 +22,151 @@ export const projects: Project[] = [
   {
     title: "Course Atlas",
     description:
-      "Interactive visualizer for university course prerequisites. Renders the full catalog as a DAG with AND/OR logic encoded directly in the graph.",
-    tags: ["React", "TypeScript", "elkjs", "React Flow"],
+      "An interactive course-prerequisite explorer built with React, TypeScript, Vite, and the Canvas API. It transforms complex university catalog requirements into readable dependency maps, helping students understand prerequisite chains, corequisites, minimum grades, and possible course pathways.",
+    tags: ["React", "TypeScript", "Vite", "Canvas API"],
     links: [
-      { label: "Live", url: "https://example.com", kind: "live" },
-      { label: "Repository", url: "https://github.com", kind: "repo" },
+      { label: "Live Demo", url: "#", kind: "live" },
+      { label: "Repository", url: "#", kind: "repo" },
     ],
   },
   {
-    title: "Project Two",
+    title: "GMUGuessr",
     description:
-      "Placeholder description. A sentence or two about what it does, what problem it solves, and what makes it interesting.",
-    tags: ["Placeholder", "Tags"],
-    links: [{ label: "Repository", url: "https://github.com", kind: "repo" }],
+      "A real-time multiplayer Android location-guessing game built with Java, Firebase, Firestore, and Python Cloud Functions. Inspired by GeoGuessr and set on the George Mason University campus, it synchronizes multiplayer lobbies, rounds, timers, and scoring through a server-authoritative backend.",
+    tags: [
+      "Java",
+      "Android",
+      "Firebase",
+      "Firestore",
+      "Python Cloud Functions",
+    ],
+    links: [
+      { label: "Releases", url: "#", kind: "live" },
+      { label: "Repository", url: "#", kind: "repo" },
+    ],
   },
   {
-    title: "Project Three",
+    title: "UPMAXXING",
     description:
-      "Placeholder description. Swap this out when the project is ready to show.",
-    tags: ["Placeholder"],
+      "A cross-platform endless vertical platformer developed with Unity and C#. Procedural, chunk-based level generation creates a replayable experience, while a Firebase Realtime Database leaderboard accessed through REST APIs synchronizes scores across PC and mobile.",
+    tags: ["Unity", "C#", "Firebase", "REST API"],
     links: [
-      { label: "Release", url: "https://example.com", kind: "live" },
-      { label: "Repository", url: "https://github.com", kind: "repo" },
+      { label: "Releases", url: "#", kind: "live" },
+      { label: "Repository", url: "#", kind: "repo" },
+    ],
+  },
+  {
+    title: "NarraBot",
+    description:
+      "A real-time Discord text-to-speech bot built with Python, discord.py, asyncio, FFmpeg, and gTTS. It narrates text-channel conversations in voice channels while supporting multiple communities through isolated queues, configurable voices, and non-blocking audio processing.",
+    tags: ["Python", "discord.py", "asyncio", "FFmpeg", "gTTS"],
+    links: [{ label: "Repository", url: "#", kind: "repo" }],
+  },
+  {
+    title: "PatriotWeb Course Scraper",
+    description:
+      "A course-data library built with Python, Requests, BeautifulSoup, regular expressions, and Flask. It converts difficult-to-navigate PatriotWeb pages into structured course records containing sections, instructors, meeting times, capacity, available seats, and waitlist information.",
+    tags: ["Python", "Requests", "BeautifulSoup", "Flask"],
+    links: [{ label: "Repository", url: "#", kind: "repo" }],
+  },
+  {
+    title: "Course Availability Monitor",
+    description:
+      "A registration-monitoring application built with Python, Requests, BeautifulSoup, Flask, and Pushover. It automatically checks high-demand courses for openings and sends mobile alerts when seats become available, eliminating repeated manual refreshes.",
+    tags: ["Python", "Flask", "BeautifulSoup", "Pushover"],
+    links: [{ label: "Repository", url: "#", kind: "repo" }],
+  },
+  {
+    title: "ProcMan",
+    description:
+      "A Unix process-management system written in C using POSIX processes, signals, pipes, and file descriptors. It provides shell-like control over foreground and background jobs, including suspension, resumption, termination, piping, and input/output redirection.",
+    tags: ["C", "Unix", "POSIX", "Processes", "Signals"],
+    links: [{ label: "Repository", url: "#", kind: "repo" }],
+  },
+  {
+    title: "Personal Portfolio",
+    description:
+      "A personal portfolio built with React, Vite, and Node.js to present my software-engineering experience, technical projects, live demonstrations, and source repositories in a more visual and interactive format than a traditional résumé.",
+    tags: ["React", "Vite", "Node.js", "Netlify"],
+    links: [
+      {
+        label: "Live",
+        url: "https://jacobaldana.dev",
+        kind: "live",
+      },
+      {
+        label: "Repository",
+        url: "#",
+        kind: "repo",
+      },
     ],
   },
 ];
 
 export const profile = {
   name: "Jacob Aldana",
-  tagline: "Software engineer in training.",
+  tagline: "Software Engineer & Computer Science Student",
   blurb:
-    "CS student at George Mason University and software engineering intern. This is my portfolio so far — projects land here as they ship.",
+    "Computer Science student at George Mason University with experience building full-stack engineering tools, DevOps automation, data visualizations, multiplayer applications, and developer-focused platforms.",
   links: [
-    { label: "GitHub", url: "https://github.com" },
-    { label: "LinkedIn", url: "https://linkedin.com" },
-    { label: "Email", url: "mailto:you@jacobaldana.dev" },
+    {
+      label: "GitHub",
+      url: "https://github.com/Jakovage",
+    },
+    {
+      label: "LinkedIn",
+      url: "https://linkedin.com/in/jacobaldana",
+    },
+    {
+      label: "Email",
+      url: "mailto:jaaldana805@gmail.com",
+    },
   ],
 };
+
+export type Experience = {
+  role: string;
+  company: string;
+  location: string;
+  dates: string;
+  description: string;
+  tags: string[];
+};
+
+export const experience: Experience[] = [
+  {
+    role: "Incoming Software Engineering Co-op – DevOps",
+    company: "Collins Aerospace (RTX)",
+    location: "Remote",
+    dates: "Jul 2026 – Dec 2026",
+    description:
+      "Building a Jenkins-orchestrated pipeline that automates avionics software-certification reporting and replaces manual Grafana dashboard assembly. The pipeline uses Python, Dockerized Linux services, Jama, version control, Java traceability tooling, REST APIs, and PostgreSQL to collect certification evidence, generate traceability data, and continuously update reports for engineering and program teams.",
+    tags: [
+      "Jenkins",
+      "Python",
+      "Docker",
+      "Linux",
+      "Grafana",
+      "PostgreSQL",
+      "REST APIs",
+      "Jama",
+    ],
+  },
+  {
+    role: "Software Engineer Intern",
+    company: "Collins Aerospace (RTX)",
+    location: "Cedar Rapids, IA",
+    dates: "May 2026 – Aug 2026",
+    description:
+      "Co-developed a full-stack repository risk-analysis platform using React, TypeScript, Flask, Python, D3.js, and PixiJS. The platform combines defect density, code churn, cyclomatic complexity, and dependency data into configurable health scores, helping engineering teams identify and prioritize high-risk systems, files, and functions.",
+    tags: [
+      "React",
+      "TypeScript",
+      "Python",
+      "Flask",
+      "D3.js",
+      "PixiJS",
+      "Software Analytics",
+    ],
+  },
+];

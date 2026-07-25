@@ -1,4 +1,61 @@
-import { profile, projects, type Project, type ProjectLink } from "./data/projects";
+import { useEffect, useRef, useState } from "react";
+import { experience, profile, projects, type Experience, type Project, type ProjectLink } from "./data/projects";
+
+
+/** Adds "visible" to the element when it scrolls into view (one-way). */
+function useReveal<T extends HTMLElement>() {
+  const ref = useRef<T>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.classList.add("visible");
+      return;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add("visible");
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+  return ref;
+}
+
+
+function ThemeToggle() {
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+  }, [theme]);
+
+  return (
+    <button
+      className="theme-toggle"
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+    >
+      {theme === "dark" ? (
+        // sun
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="3.2" stroke="currentColor" strokeWidth="1.4" />
+          <path d="M8 1v1.8M8 13.2V15M1 8h1.8M13.2 8H15M3.05 3.05l1.27 1.27M11.68 11.68l1.27 1.27M12.95 3.05l-1.27 1.27M4.32 11.68l-1.27 1.27" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+        </svg>
+      ) : (
+        // moon
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M13.5 9.5A6 6 0 0 1 6.5 2.5a6 6 0 1 0 7 7z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+        </svg>
+      )}
+    </button>
+  );
+}
 
 function LinkIcon({ kind }: { kind: ProjectLink["kind"] }) {
   if (kind === "repo") {
@@ -21,15 +78,18 @@ function LinkIcon({ kind }: { kind: ProjectLink["kind"] }) {
 }
 
 function ProjectCard({ project }: { project: Project }) {
+  const ref = useReveal<HTMLElement>();
   return (
-    <article className="project-card">
-      {project.thumbnail ? (
-        <img className="thumb" src={project.thumbnail} alt={`${project.title} thumbnail`} />
-      ) : (
-        <div className="thumb-placeholder" aria-hidden="true">
-          {project.title.toLowerCase().replace(/\s+/g, "-")}.png
-        </div>
-      )}
+    <article className="project-card reveal" ref={ref}>
+      <div className="thumb-wrap">
+        {project.thumbnail ? (
+          <img className="thumb" src={project.thumbnail} alt={`${project.title} thumbnail`} />
+        ) : (
+          <div className="thumb-placeholder" aria-hidden="true">
+            {project.title.toLowerCase().replace(/\s+/g, "-")}.png
+          </div>
+        )}
+      </div>
       <div className="card-body">
         <h3>{project.title}</h3>
         <p>{project.description}</p>
@@ -52,6 +112,32 @@ function ProjectCard({ project }: { project: Project }) {
               <LinkIcon kind={link.kind} />
               {link.label}
             </a>
+          ))}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+
+function ExperienceItem({ item }: { item: Experience }) {
+  const ref = useReveal<HTMLElement>();
+  return (
+    <article className="exp-item reveal" ref={ref}>
+      <div className="exp-meta">
+        <span className="exp-dates">{item.dates}</span>
+        <span className="exp-location">{item.location}</span>
+      </div>
+      <div className="exp-body">
+        <h3>
+          {item.role} <span className="exp-company">· {item.company}</span>
+        </h3>
+        <p>{item.description}</p>
+        <div className="tag-row">
+          {item.tags.map((tag) => (
+            <span className="tag" key={tag}>
+              {tag}
+            </span>
           ))}
         </div>
       </div>
@@ -85,13 +171,16 @@ export default function App() {
           <a className="wordmark" href="/">
             jacobaldana<span>.dev</span>
           </a>
-          <nav className="header-links">
-            {profile.links.map((link) => (
-              <a key={link.label} href={link.url} target="_blank" rel="noopener noreferrer">
-                {link.label}
-              </a>
-            ))}
-          </nav>
+          <div className="header-right">
+            <nav className="header-links">
+              {profile.links.map((link) => (
+                <a key={link.label} href={link.url} target="_blank" rel="noopener noreferrer">
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+            <ThemeToggle />
+          </div>
         </header>
 
         <section className="hero">
@@ -104,6 +193,13 @@ export default function App() {
         </section>
 
         <main>
+          <h2 className="section-label">Experience</h2>
+          <div className="exp-list">
+            {experience.map((item) => (
+              <ExperienceItem key={item.role + item.company} item={item} />
+            ))}
+          </div>
+
           <h2 className="section-label">Projects</h2>
           <div className="project-grid">
             {projects.map((project) => (
