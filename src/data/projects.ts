@@ -1,3 +1,8 @@
+import courseAtlasThumbnail from "./courseatlasimg.jpg";
+import gmuGuessrThumbnail from "./Screenshot 2026-07-24 220741.jpg";
+import upmaxxingThumbnail from "./upmaxxingthunm.jpg";
+import narraBotThumbnail from "./discord-logo-icon-editorial-free-vector.jpg";
+
 // Edit this file to add, remove, or reorder projects.
 // Each project shows a thumbnail, title, description, tags, and link buttons.
 // - thumbnail: put an image in /public (e.g. /course-atlas.png) and reference it
@@ -24,10 +29,14 @@ export const projects: Project[] = [
     description:
       "An interactive course-prerequisite explorer built with React, TypeScript, Vite, and the Canvas API. It transforms complex university catalog requirements into readable dependency maps, helping students understand prerequisite chains, corequisites, minimum grades, and possible course pathways.",
     tags: ["React", "TypeScript", "Vite", "Canvas API"],
-    thumbnail: "src/data/courseatlasimg.jpg",
+    thumbnail: courseAtlasThumbnail,
     links: [
       { label: "Live Demo", url: "https://gmucourseatlas.com", kind: "live" },
-      { label: "Repository", url: "https://github.com/Jakovage/gmu-course-atlas", kind: "repo" },
+      {
+        label: "Repository",
+        url: "https://github.com/Jakovage/gmu-course-atlas",
+        kind: "repo",
+      },
     ],
   },
   {
@@ -41,10 +50,18 @@ export const projects: Project[] = [
       "Firestore",
       "Python Cloud Functions",
     ],
-    thumbnail: "src/data/Screenshot 2026-07-24 220741.jpg",
+    thumbnail: gmuGuessrThumbnail,
     links: [
-      { label: "Releases", url: "https://github.com/radecri/GMUGuessr/releases/tag/v1.0", kind: "live" },
-      { label: "Repository", url: "https://github.com/radecri/GMUGuessr", kind: "repo" },
+      {
+        label: "Releases",
+        url: "https://github.com/radecri/GMUGuessr/releases/tag/v1.0",
+        kind: "live",
+      },
+      {
+        label: "Repository",
+        url: "https://github.com/radecri/GMUGuessr",
+        kind: "repo",
+      },
     ],
   },
   {
@@ -52,10 +69,18 @@ export const projects: Project[] = [
     description:
       "A cross-platform endless vertical platformer developed with Unity and C#. Procedural, chunk-based level generation creates a replayable experience, while a Firebase Realtime Database leaderboard accessed through REST APIs synchronizes scores across PC and mobile.",
     tags: ["Unity", "C#", "Firebase", "REST API"],
-    thumbnail: "src/data/upmaxxingthunm.jpg",
+    thumbnail: upmaxxingThumbnail,
     links: [
-      { label: "Releases", url: "https://github.com/yyonathan/UPMAXXING/releases", kind: "live" },
-      { label: "Repository", url: "https://github.com/yyonathan/UPMAXXING", kind: "repo" },
+      {
+        label: "Releases",
+        url: "https://github.com/yyonathan/UPMAXXING/releases",
+        kind: "live",
+      },
+      {
+        label: "Repository",
+        url: "https://github.com/yyonathan/UPMAXXING",
+        kind: "repo",
+      },
     ],
   },
   {
@@ -63,27 +88,39 @@ export const projects: Project[] = [
     description:
       "A real-time Discord text-to-speech bot built with Python, discord.py, asyncio, FFmpeg, and gTTS. It narrates text-channel conversations in voice channels while supporting multiple communities through isolated queues, configurable voices, and non-blocking audio processing.",
     tags: ["Python", "discord.py", "asyncio", "FFmpeg", "gTTS"],
-    thumbnail: "src/data/discord-logo-icon-editorial-free-vector.jpg",
-    links: [{ label: "Repository", url: "https://github.com/Jakovage/narrabot", kind: "repo" }],
+    thumbnail: narraBotThumbnail,
+    links: [
+      {
+        label: "Repository",
+        url: "https://github.com/Jakovage/narrabot",
+        kind: "repo",
+      },
+    ],
   },
   {
     title: "PatriotWeb Course Scraper",
     description:
       "A course-data library built with Python, Requests, BeautifulSoup, regular expressions, and Flask. It converts difficult-to-navigate PatriotWeb pages into structured course records containing sections, instructors, meeting times, capacity, available seats, and waitlist information.",
     tags: ["Python", "Requests", "BeautifulSoup", "Flask"],
-    links: [{ label: "Repository", url: "https://github.com/Jakovage/gmu-course-checker", kind: "repo" }],
+    links: [
+      {
+        label: "Repository",
+        url: "https://github.com/Jakovage/gmu-course-checker",
+        kind: "repo",
+      },
+    ],
   },
   {
     title: "Unix Task Manager",
     description:
       "A Unix process-management system written in C using POSIX processes, signals, pipes, and file descriptors. It provides shell-like control over foreground and background jobs, including suspension, resumption, termination, piping, and input/output redirection.",
     tags: ["C", "Unix", "POSIX", "Processes", "Signals"],
-    links: [{ label: "Repository", url: "#", kind: "repo" }],
+    links: [],
   },
   {
-    title: "Personal Portfolio",
+    title: "My Personal Portfolio",
     description:
-      "A personal portfolio built with React, Vite, and Node.js to present my software-engineering experience, technical projects, live demonstrations, and source repositories in a more visual and interactive format than a traditional résumé.",
+      "My personal portfolio built with React, Vite, and Node.js to present my software-engineering experience, technical projects, live demonstrations, and source repositories in a more visual and interactive format than a traditional résumé.",
     tags: ["React", "Vite", "Node.js", "Netlify"],
     links: [
       {
