@@ -24,9 +24,10 @@ export const projects: Project[] = [
     description:
       "An interactive course-prerequisite explorer built with React, TypeScript, Vite, and the Canvas API. It transforms complex university catalog requirements into readable dependency maps, helping students understand prerequisite chains, corequisites, minimum grades, and possible course pathways.",
     tags: ["React", "TypeScript", "Vite", "Canvas API"],
+    thumbnail: "src/data/courseatlasimg.jpg",
     links: [
-      { label: "Live Demo", url: "#", kind: "live" },
-      { label: "Repository", url: "#", kind: "repo" },
+      { label: "Live Demo", url: "https://gmucourseatlas.com", kind: "live" },
+      { label: "Repository", url: "https://github.com/Jakovage/gmu-course-atlas", kind: "repo" },
     ],
   },
   {
@@ -40,9 +41,10 @@ export const projects: Project[] = [
       "Firestore",
       "Python Cloud Functions",
     ],
+    thumbnail: "src/data/Screenshot 2026-07-24 220741.jpg",
     links: [
-      { label: "Releases", url: "#", kind: "live" },
-      { label: "Repository", url: "#", kind: "repo" },
+      { label: "Releases", url: "https://github.com/radecri/GMUGuessr/releases/tag/v1.0", kind: "live" },
+      { label: "Repository", url: "https://github.com/radecri/GMUGuessr", kind: "repo" },
     ],
   },
   {
@@ -50,9 +52,10 @@ export const projects: Project[] = [
     description:
       "A cross-platform endless vertical platformer developed with Unity and C#. Procedural, chunk-based level generation creates a replayable experience, while a Firebase Realtime Database leaderboard accessed through REST APIs synchronizes scores across PC and mobile.",
     tags: ["Unity", "C#", "Firebase", "REST API"],
+    thumbnail: "src/data/upmaxxingthunm.jpg",
     links: [
-      { label: "Releases", url: "#", kind: "live" },
-      { label: "Repository", url: "#", kind: "repo" },
+      { label: "Releases", url: "https://github.com/yyonathan/UPMAXXING/releases", kind: "live" },
+      { label: "Repository", url: "https://github.com/yyonathan/UPMAXXING", kind: "repo" },
     ],
   },
   {
@@ -60,24 +63,18 @@ export const projects: Project[] = [
     description:
       "A real-time Discord text-to-speech bot built with Python, discord.py, asyncio, FFmpeg, and gTTS. It narrates text-channel conversations in voice channels while supporting multiple communities through isolated queues, configurable voices, and non-blocking audio processing.",
     tags: ["Python", "discord.py", "asyncio", "FFmpeg", "gTTS"],
-    links: [{ label: "Repository", url: "#", kind: "repo" }],
+    thumbnail: "src/data/discord-logo-icon-editorial-free-vector.jpg",
+    links: [{ label: "Repository", url: "https://github.com/Jakovage/narrabot", kind: "repo" }],
   },
   {
     title: "PatriotWeb Course Scraper",
     description:
       "A course-data library built with Python, Requests, BeautifulSoup, regular expressions, and Flask. It converts difficult-to-navigate PatriotWeb pages into structured course records containing sections, instructors, meeting times, capacity, available seats, and waitlist information.",
     tags: ["Python", "Requests", "BeautifulSoup", "Flask"],
-    links: [{ label: "Repository", url: "#", kind: "repo" }],
+    links: [{ label: "Repository", url: "https://github.com/Jakovage/gmu-course-checker", kind: "repo" }],
   },
   {
-    title: "Course Availability Monitor",
-    description:
-      "A registration-monitoring application built with Python, Requests, BeautifulSoup, Flask, and Pushover. It automatically checks high-demand courses for openings and sends mobile alerts when seats become available, eliminating repeated manual refreshes.",
-    tags: ["Python", "Flask", "BeautifulSoup", "Pushover"],
-    links: [{ label: "Repository", url: "#", kind: "repo" }],
-  },
-  {
-    title: "ProcMan",
+    title: "Unix Task Manager",
     description:
       "A Unix process-management system written in C using POSIX processes, signals, pipes, and file descriptors. It provides shell-like control over foreground and background jobs, including suspension, resumption, termination, piping, and input/output redirection.",
     tags: ["C", "Unix", "POSIX", "Processes", "Signals"],
